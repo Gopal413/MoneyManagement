@@ -22,7 +22,7 @@ function Moneymanager() {
     console.log("obj",obj)
     setstore(pre=>[...pre,obj])
     
-     cash == "Income"?<div>{setincome(pre=>pre+Number(amount))},{setbalance(pre=>pre+Number(amount))},{console.log("incomevalue")}</div>:<div>{setexpenses(pre=>pre+Number(amount))},{setbalance(pre=>pre-Number(amount))},{console.log("expensesvalue")}</div>;
+     cash === "Income"?<div>{setincome(pre=>pre+Number(amount))},{setbalance(pre=>pre+Number(amount))},{console.log("incomevalue")}</div>:<div>{setexpenses(pre=>pre+Number(amount))},{setbalance(pre=>pre-Number(amount))},{console.log("expensesvalue")}</div>;
     console.log("cash",cash,"amount",amount,"income",income,"expenses",expenses)
   }
 
@@ -91,7 +91,9 @@ function Moneymanager() {
                     <td className='py-2'>{value.title}</td>
                     <td>{value.amount}</td>
                     <td>{value.cash}</td>
-                    <td className='pl-4 ' onClick={()=>setstore(pre=>pre.filter(each=>(each.id!=value.id)))}><img className='w-10 h-8 cursor-pointer hover:bg-green-300' src='./Images/dustbin.png'/></td>
+                    <td className='pl-4 ' onClick={()=>setstore(pre=>pre.filter(each=>(each.id!==value.id)))}>
+                      <img className='w-10 h-8 cursor-pointer hover:bg-green-300' src='./Images/dustbin.png' alt='not found'/>
+                      </td>
                   </tr>
                 ))}
                 </tbody>
